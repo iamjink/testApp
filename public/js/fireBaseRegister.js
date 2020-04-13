@@ -14,16 +14,34 @@ firebase.initializeApp(firebaseConfig);
 
 firebase.auth.Auth.Persistence.LOCAL;
 
+//firebase user register
+$("#submit").click(function() {
+  var email = $("#inputEmail").val();
+  var password = $("#inputPassword").val();
+
+  if (email != "" && password != "") {
+    var result = firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password);
+    window.alert("Welcome! Your account has been created!");
+    result.catch(function(err) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      window.alert("Message :  + errorMessage");
+    });
+  }
+});
+
+//if user is signed in, load signedin page
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // window.location.href = "/signedin";
+  }
+});
+
 //log out function on button click
 function logout() {
   window.alert("Logging out");
   firebase.auth().signOut();
   window.location.href = "/";
 }
-
-//if user is not signed in, load home "/" page
-firebase.auth().onAuthStateChanged(function(user) {
-  if (!user) {
-    window.location.href = "/";
-  }
-});
