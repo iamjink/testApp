@@ -51,6 +51,11 @@ div:not(:first-child) {
 	display: block; /* remove extra space below image */
 }
 
+#chooseProfilePic {
+	text-align: center;
+	/* margin-bottom: -3%; */
+}
+
 /* fonts */
 #homeTitle {
 	font-family: 'Barlow', sans-serif;
@@ -108,8 +113,58 @@ footer {
 	box-shadow: none;
 }
 
+.form-control-file {
+	border: none;
+	height: 37px;
+	margin: auto;
+	margin-top: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+}
+
+button {
+	border: none;
+	height: 37px;
+	margin: auto;
+	margin-top: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	background: #333;
+	font-size: 15px;
+	color: #fff;
+	vertical-align: middle;
+	-webkit-transform: perspective(1px) translateZ(0);
+	transform: perspective(1px) translateZ(0);
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+button i {
+	margin-left: 10px;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+}
+button:hover i,
+button:focus i,
+button:active i {
+	-webkit-animation-name: hvr-icon-wobble-horizontal;
+	animation-name: hvr-icon-wobble-horizontal;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-timing-function: ease-in-out;
+	animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+}
+
 @media screen and (max-width: 1200px) {
-	#title, #subTitle {
-	  font-size: 30px;
+	#title,
+	#subTitle {
+		font-size: 30px;
 	}
-  }
+}

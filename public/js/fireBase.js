@@ -11,3 +11,28 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+firebase.auth.Auth.Persistence.LOCAL;
+
+//log in function when input is made on button click
+function login() {
+  var userEmail = document.getElementById("inputEmail").value;
+  var userPass = document.getElementById("inputPassword").value;
+
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(userEmail, userPass)
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorMessage = error.message;
+
+      window.alert("Your email and password combination is not correct");
+    });
+}
+
+//if user is signed in, load signedin page
+firebase.auth().onAuthStateChanged(function (user) {
+  if (user) {
+    window.location.href = "/signedin";
+  }
+});

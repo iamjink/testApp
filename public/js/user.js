@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Getting jQuery references to the post body, title, form, and author select
-  var profileInput = $("#inputProfile");
+  var profileInput = $("#validatedCustomFile");
   var nameInput = $("#inputName");
   var emailInput = $("#inputEmail");
   var passInput = $("#inputPassword");
